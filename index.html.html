@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Técnico-Acadêmico</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            color: var(--light-color);
+        }
+        
+        nav {
+            background-color: var(--dark-color);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .project-info p {
+            color: var(--text-light);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 0.8rem;
+        }
+        
+        .education-item, .experience-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .education-item h3, .experience-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .date {
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Seu Nome</h1>
+            <p>Engenheiro de Software | Pesquisador | Especialista em [Sua Área]</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Olá! Sou um profissional apaixonado por [sua área de atuação], com experiência em [áreas relevantes]. Minha jornada acadêmica e profissional tem sido focada em [descreva brevemente seu foco].</p>
+                    <p>Atualmente, estou [sua situação atual - ex: cursando mestrado, trabalhando em X empresa, desenvolvendo pesquisa em Y área]. Meus interesses incluem [liste alguns interesses técnicos/acadêmicos].</p>
+                    <p>Este portfólio apresenta uma seleção dos meus projetos mais relevantes, publicações e conquistas acadêmicas.</p>
+                </div>
+                <img src="profile.jpg" alt="Foto de perfil" class="profile-img">
+            </div>
+        </section>
+        
+        <section id="projetos">
+            <h2>Projetos Destacados</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Projeto 1" class="project-img">
+                    <div class="project-info">
+                        <h3>Sistema de Análise de Dados</h3>
+                        <p>Plataforma desenvolvida em Python para processamento e visualização de grandes volumes de dados científicos.</p>
+                        <p><strong>Tecnologias:</strong> Python, Pandas, Matplotlib, Django</p>
+                        <a href="#">Ver detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="project2.jpg" alt="Projeto 2" class="project-img">
+                    <div class="project-info">
+                        <h3>Pesquisa em Machine Learning</h3>
+                        <p>Implementação e avaliação de algoritmos de aprendizado de máquina para classificação de imagens médicas.</p>
+                        <p><strong>Tecnologias:</strong> TensorFlow, Scikit-learn, OpenCV</p>
+                        <a href="#">Ver detalhes</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Projeto 3" class="project-img">
+                    <div class="project-info">
+                        <h3>Framework para IoT</h3>
+                        <p>Desenvolvimento de um framework modular para integração de dispositivos IoT em ambientes industriais.</p>
+                        <p><strong>Tecnologias:</strong> C++, MQTT, Raspberry Pi</p>
+                        <a href="#">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="habilidades">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Linguagens de Programação</h3>
+                    <div class="skill-item">
+                        <strong>Python</strong> - Avançado (Análise de dados, ML, Automação)
+                    </div>
+                    <div class="skill-item">
+                        <strong>Java</strong> - Intermediário (Desenvolvimento Android, POO)
+                    </div>
+                    <div class="skill-item">
+                        <strong>C/C++</strong> - Intermediário (Sistemas embarcados, IoT)
+                    </div>
+                    <div class="skill-item">
+                        <strong>JavaScript</strong> - Intermediário (Desenvolvimento Web)
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tecnologias e Frameworks</h3>
+                    <div class="skill-item">
+                        <strong>TensorFlow/PyTorch</strong> - Modelos de Deep Learning
+                    </div>
+                    <div class="skill-item">
+                        <strong>Django/Flask</strong> - Desenvolvimento Backend
+                    </div>
+                    <div class="skill-item">
+                        <strong>React</strong> - Desenvolvimento Frontend
+                    </div>
+                    <div class="skill-item">
+                        <strong>Docker/Kubernetes</strong> - Contêinerização e Orquestração
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Conhecimentos Acadêmicos</h3>
+                    <div class="skill-item">
+                        <strong>Machine Learning</strong> - Algoritmos supervisionados e não supervisionados
+                    </div>
+                    <div class="skill-item">
+                        <strong>Visão Computacional</strong> - Processamento de imagens
+                    </div>
+                    <div class="skill-item">
+                        <strong>Redes Neurais</strong> - Arquiteturas CNN, RNN
+                    </div>
+                    <div class="skill-item">
+                        <strong>Estatística</strong> - Análise exploratória, testes de hipóteses
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="formacao">
+            <h2>Formação Acadêmica</h2>
+            
+            <div class="education-item">
+                <h3>Mestrado em Ciência da Computação</h3>
+                <p class="date">2022 - Presente</p>
+                <p>Universidade Federal de [Seu Estado], Brasil</p>
+                <p>Área de concentração: Inteligência Artificial e Processamento de Imagens</p>
+                <p>Projeto de pesquisa: "Desenvolvimento de algoritmos eficientes para segmentação semântica em imagens médicas"</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Bacharelado em Engenharia de Software</h3>
+                <p class="date">2018 - 2021</p>
+                <p>Universidade de [Sua Cidade], Brasil</p>
+                <p>TCC: "Framework para integração de dispositivos IoT em ambientes hospitalares"</p>
+                <p>Índice acadêmico: 8.7/10</p>
+            </div>
+        </section>
+        
+        <section id="experiencia">
+            <h2>Experiência Profissional</h2>
+            
+            <div class="experience-item">
+                <h3>Pesquisador Assistente</h3>
+                <p class="date">2021 - Presente</p>
+                <p>Laboratório de Inteligência Artificial - Universidade Federal de [Seu Estado]</p>
+                <ul>
+                    <li>Desenvolvimento de modelos de deep learning para análise de imagens médicas</li>
+                    <li>Publicação de artigos em conferências internacionais</li>
+                    <li>Orientação de alunos de iniciação científica</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Estagiário em Desenvolvimento de Software</h3>
+                <p class="date">2020 - 2021</p>
+                <p>[Nome da Empresa], [Cidade]</p>
+                <ul>
+                    <li>Desenvolvimento de APIs RESTful para sistema de gestão empresarial</li>
+                    <li>Implementação de features frontend utilizando React.js</li>
+                    <li>Participação em processos de code review e testes automatizados</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Estou sempre aberto a colaborações acadêmicas, oportunidades de pesquisa ou discussões sobre tecnologia. Sinta-se à vontade para entrar em contato!</p>
+            <p><strong>Email:</strong> seu.email@universidade.edu.br</p>
+            <div class="contact-links">
+                <a href="https://github.com/seu-usuario" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
+                <a href="http://lattes.cnpq.br/seu-id" target="_blank">Lattes</a>
+                <a href="https://scholar.google.com/citations?user=seu-id" target="_blank">Google Scholar</a>
+                <a href="https://orcid.org/seu-id" target="_blank">ORCID</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Seu Nome. Todos os direitos reservados.</p>
+            <p>Última atualização: <span id="update-date"></span></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Atualiza o ano no footer automaticamente
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Atualiza a data de última atualização
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('update-date').textContent = new Date().toLocaleDateString('pt-BR', options);
+    </script>
+</body>
+</html>
